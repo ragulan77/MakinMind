@@ -1,0 +1,40 @@
+{% extends "::layout.html.twig" %}
+{% block title %}{{ parent() }} :: Conditions{% endblock %}
+{% block titlebar_title %}Les conditions{% endblock %}
+{% block titlebar_ariane %}
+	{{parent()}} 
+	<a href="{{ path('my_projects') }}">Mes projets</a> / 
+	<a href="{{ path('my_project', {'id': project.id, 'url': project.url}) }}">{{project.name|title}}</a> / <span>Conditions</span>
+{% endblock %}
+{% block slider %}{% endblock %}
+{% block content_type %}{{parent()}}{% endblock%}
+
+
+{% block content %}
+<div class="block_blog_post_type_1">
+	<article>
+		<div class="content">
+			<h4>Contrat et Conditions</h4>
+			<h6 style="padding-bottom:13px;">Conditions pour postuler</h6>
+			<p>
+				<strong>Années d'étude requises : </strong>bac+{{project.applyTerms.pbStudies}}<br/>
+				<strong>Diplome requis : </strong>{{project.applyTerms.firstDiploma}}<br/>
+				<strong>Spécialité : </strong> {{project.applyTerms.specialization}}<br/>
+				<strong>Expérience proféssionnel : </strong>{{project.applyTerms.numberWorkedYears}} année(s)<br/>
+				<strong>Heure de travail par semaine pour le projet : </strong>{{project.applyTerms.hoursPerWeek}} heure(s)<br/>
+				<strong>Contrat parallèle autorisé : </strong>{% if project.applyTerms.paralleleContract == 1 %}oui {% else %} non {% endif %}<br/>
+			</p>
+
+			<h6 style="padding-bottom:13px;">Le contrat</h6>
+			<p><a href="./def.pdf">Afficher le contrat</a></p>
+		</div>
+	</article>
+</div>
+{% endblock %}
+
+{% block right %}
+<div class="sidebar">
+	<div class="separator" style="height:37px;"></div>
+	{% include "MakinMindProjectBundle:Project:sidebar_owner_project.html.twig" with {'project' : project} %}
+</div>
+{% endblock %}

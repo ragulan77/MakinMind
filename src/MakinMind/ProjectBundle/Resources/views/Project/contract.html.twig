@@ -1,0 +1,30 @@
+{% extends "::layout.html.twig" %}
+{% block title %}{{ parent() }} :: Conditions du projet{% endblock %}
+{% block titlebar_title %}Conditions du projet {{project.name|title}} {% endblock %}
+{% block titlebar_ariane %}
+	{{ parent() }} <span>Conditions du projet</span>
+{% endblock %}
+{% block slider %}{% endblock %}
+{% block content_type %}{% endblock%}
+
+{% block content %}
+<div class="main_content">
+	<h1>Conditions pour postuler</h1>
+	<p><strong>années d'étude requises : </strong>bac+{{project.applyTerms.pbStudies}}</p>
+	<p><strong>diplome requis : </strong>{{project.applyTerms.firstDiploma}}</p>
+	<p><strong>spécialité : </strong> {{project.applyTerms.specialization}}</p>
+	<p><strong>expérience proféssionnel : </strong>{{project.applyTerms.numberWorkedYears}} année(s)</p>
+	<p><strong>heure de travail par semaine pour le projet : </strong>{{project.applyTerms.hoursPerWeek}} heure(s)</p>
+	<p><strong>contrat parallèle autorisé : </strong>{% if project.applyTerms.paralleleContract == 1 %}oui {% else %} non {% endif %}</p>
+	<div class="line_2" style="margin:12px 0px 33px;"></div>
+	<h1>Le contrat</h1>
+	<object width="400" height="400" data="helloworld.swf"></object>
+	<div class="line_2" style="margin:12px 0px 33px;"></div>
+	<p>Lettre de motivation</p>
+	<form method="post" action="{{path('MakinMindProjectBundle_contract', {'id': project.id})}}">
+		<textarea cols="50" rows="20" name="motivations"/></textarea><br/>
+		<input type="checkbox" name="contract_accpt" id="contract_accpt" required="required"/> <label for="contract_accpt">J'accepte les conditions et le contrat pour postuler</label><br /><br/>
+		<input type="submit" value="postuler"/>
+	</form>
+</div>
+{% endblock %}

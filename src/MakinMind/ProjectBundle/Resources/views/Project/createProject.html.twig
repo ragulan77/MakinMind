@@ -1,0 +1,89 @@
+{% extends "::layout.html.twig" %}
+{% block title %}{{ parent() }} :: Création de projet{% endblock %}
+{% block titlebar_title %}Créer un projet{% endblock %}
+{% block titlebar_ariane %}
+	{{ parent() }} <span>Créer un projet</span>
+{% endblock %}
+{% block slider %}{% endblock %}
+{% block content_type %}{% endblock%}
+
+{% block projects %} class="current_page_item"{% endblock %}
+
+{% block content %}
+	<form method="post" {{ form_enctype(formProject) }}>
+		<div>
+			{{ form_label(formProject.name, 'Nom du projet') }}
+			{{ form_errors(formProject.name) }}
+			{{ form_widget(formProject.name) }}
+		</div>	
+   		<div>
+			{{ form_label(formProject.shortDescription, 'Résumé du projet :') }}
+			<p>&nbsp;</p>
+			{{ form_errors(formProject.shortDescription) }}
+			{{ form_widget(formProject.shortDescription) }}
+		</div>
+		<div>
+			{{ form_label(formProject.longDescription, 'Déscription détaillée du projet :') }}
+			{{ form_errors(formProject.longDescription) }}
+			{{ form_widget(formProject.longDescription) }}
+		</div>
+		<div>
+			{{ form_label(formProject.beginDate, 'Date de début :') }}
+			{{ form_errors(formProject.beginDate) }}
+			{{ form_widget(formProject.beginDate) }}
+		</div>
+		<div>
+			{{ form_label(formProject.endingDate, 'Date de fin :') }}
+			{{ form_errors(formProject.endingDate) }}
+			{{ form_widget(formProject.endingDate) }}
+		</div>
+		<div>
+			{{ form_label(formProject.logo, 'Bannière du projet :') }}
+			{{ form_errors(formProject.logo) }}
+			{{ form_widget(formProject.logo) }}
+		</div>
+		<div>
+			{{ form_label(formProject.domains, 'Domaine(s) :') }}
+			{{ form_errors(formProject.domains) }}
+			{{ form_widget(formProject.domains) }}
+		</div>
+		<div>
+			{{ form_label(formProject.applyTerms.pbStudies, 'Niveau d\'étude en année :') }}
+			{{ form_errors(formProject.applyTerms.pbStudies) }}
+			{{ form_widget(formProject.applyTerms.pbStudies) }}
+		</div>
+		<div>
+			{{ form_label(formProject.applyTerms.firstDiploma, 'Diplôme requis :') }}
+			{{ form_errors(formProject.applyTerms.firstDiploma) }}
+			{{ form_widget(formProject.applyTerms.firstDiploma) }}
+		</div>
+		<div>
+			{{ form_label(formProject.applyTerms.secondDiploma, 'Dexième diplôme requis (optionnel) :') }}
+			{{ form_errors(formProject.applyTerms.secondDiploma) }}
+			{{ form_widget(formProject.applyTerms.secondDiploma) }}
+		</div>
+		<div>
+			{{ form_label(formProject.applyTerms.specialization, 'Spécialisation :') }}
+			{{ form_errors(formProject.applyTerms.specialization) }}
+			{{ form_widget(formProject.applyTerms.specialization) }}
+		</div>
+		<div>
+			{{ form_label(formProject.applyTerms.numberWorkedYears, 'Expérience professionnelle en année :') }}
+			{{ form_errors(formProject.applyTerms.numberWorkedYears) }}
+			{{ form_widget(formProject.applyTerms.numberWorkedYears) }}
+		</div>
+		<div>
+			{{ form_label(formProject.applyTerms.hoursPerWeek, 'Expérience professionnelle en année :') }}
+			{{ form_errors(formProject.applyTerms.hoursPerWeek) }}
+			{{ form_widget(formProject.applyTerms.hoursPerWeek) }}
+		</div>
+		<div>
+			{{ form_label(formProject.applyTerms.paralleleContract, 'Contrat parallèle autorisé :') }}
+			{{ form_errors(formProject.applyTerms.paralleleContract) }}
+			{{ form_widget(formProject.applyTerms.paralleleContract) }}
+		</div>	
+    	<input type="submit" class="btn btn-primary" />
+  	</form>
+{% endblock %}
+
+

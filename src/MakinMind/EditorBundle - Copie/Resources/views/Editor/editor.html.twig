@@ -1,0 +1,34 @@
+{% extends "::layout.html.twig" %}
+{% block title %}{{ parent() }} :: Editeur de text{% endblock %}
+{% block titlebar_title %}Editeur en ligne{% endblock %}
+{% block titlebar_ariane %}
+	{{ parent() }} <span>Editeur en ligne</span>
+{% endblock %}
+{% block slider %}{% endblock %}
+{% block content_type %}{% endblock%}
+
+{% block resources %}
+{{parent()}}
+<link rel="stylesheet" href="layout/style.css" type="text/css">
+<script src="ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="layout/js/jquery.js"></script>
+<!-- sert à charger un fichier, après double clique dans le tree -->
+<script type="text/javascript">$(document).bind('yourproject', function(e,eventData) {
+          window.location=eventData;
+    });</script> 
+{% endblock %}
+
+
+{% block content %}
+	<h3>Editeur du projet {{project.name}}</h3>
+	<!-- Form de textarea  -->
+	<form  method="post">
+		<textarea name="newd" cols="70%" rows="50">{{data}}</textarea>
+		<input type="submit" value="Change">
+	</form>
+	<!-- Partie appel de index2 dans iframe pour la création des projets -->
+	<div class="block_categories">
+		<h6>Projects</h6>
+		<iframe src="{{path('EditorBundle_editorTree', {'id': project})}}" width="50%" height="50%" ></iframe>
+	</div>
+{% endblock %}

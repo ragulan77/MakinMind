@@ -1,0 +1,16 @@
+<div class="block_categories">
+	<h6>Catégories</h6>
+	<ul class="list_5">
+		<li><a href="{{ path('project_contract', {'id': project.id, 'url': project.url}) }}">Contrat</a></li>
+		<li><a href="{{ path('project_list_developpers', {'id': project.id, 'url': project.url}) }}">Développeurs</a></li>
+	</ul>
+
+	<p>&nbsp;</p>
+
+	<h6>Modifier</h6>
+	<ul class="list_5">
+		<li><a href="{{ path('project_candidates', {'id': project.id, 'url': project.url}) }}">Candidats</a></li>
+		<li><a href="{{ path('project_retained_candidates', {'id': project.id, 'url': project.url}) }}">Candidats choisis</a></li>
+	</ul>
+</div>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords"  content="" />
+<meta name="description" content="" />
+<title>Editable jquery tree with php codes</title>
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/style.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{asset('bundles/makinmindeditor/css/style.css')}}" />
+
+<!-- for routing in js file -->
+<script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
+<!-- default tree manager's js files -->
+<script type="text/javascript" src="{{asset('bundles/makinmindeditor/js/jquery/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('bundles/makinmindeditor/js/jquery/plugins/jquery.cookie.js')}}"></script>
+<script type="text/javascript" src="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/jquery.simple.tree.js')}}"></script>
+<script type="text/javascript" src="{{asset('bundles/makinmindeditor/js/langManager.js')}}" ></script>
+<script type="text/javascript" src="{{asset('bundles/makinmindeditor/js/treeOperations.js')}}"></script>
+<script type="text/javascript" src="{{asset('bundles/makinmindeditor/js/init.js')}}"></script>
+
+
+</head>
+<body>
+	<p id="idProject" hidden="true">{{project.id}}</p>
+	<div class="contextMenu" id="myMenu1">	
+			<li class="addFolder">
+				<img src="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/images/folder_add.png')}}" /> </li>
+			<li class="addDoc"><img src="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/images/page_add.png')}}" /> </li>	
+			<li class="edit"><img src="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/images/folder_edit.png')}}" /> </li>
+			<li class="delete"><img src="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/images/folder_delete.png')}}" /> </li>
+			<li class="expandAll"><img src="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/images/expand.png')}}"/> </li>
+			<li class="collapseAll"><img src="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/images/collapse.png')}}"/> </li>	
+	</div>
+	<div class="contextMenu" id="myMenu2">
+			<li class="edit"><img src="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/images/page_edit.png')}}" /> </li>
+			<li class="delete"><img src="{{asset('bundles/makinmindeditor/js/jquery/plugins/simpleTree/images/page_delete.png')}}" /> </li>
+	</div>
+
+	<div id="wrap">
+		<div id="annualWizard">	
+				<ul class="simpleTree" id='pdfTree'>		
+						<li class="root" id='{{rootId}}'><span>{{rootName}}</span>
+							<ul>{{treeElements|raw}}</ul>				
+						</li>
+				</ul>						
+		</div>	
+		
+	</div> 
+	<div id='processing'></div>
+</body>
+</html>
